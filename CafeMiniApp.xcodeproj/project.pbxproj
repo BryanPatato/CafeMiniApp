@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C760FD926F2244D008F22C1 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C760FD826F2244D008F22C1 /* ViewController2.swift */; };
 		9CABCAC626EF864100213F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABCAC526EF864100213F82 /* AppDelegate.swift */; };
 		9CABCAC826EF864100213F82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABCAC726EF864100213F82 /* SceneDelegate.swift */; };
 		9CABCACA26EF864100213F82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CABCAC926EF864100213F82 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C760FD826F2244D008F22C1 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		9CABCAC226EF864100213F82 /* CafeMiniApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CafeMiniApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CABCAC526EF864100213F82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CABCAC726EF864100213F82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				9CABCAC726EF864100213F82 /* SceneDelegate.swift */,
 				9CABCAC926EF864100213F82 /* ViewController.swift */,
 				9CABCACB26EF864100213F82 /* Main.storyboard */,
+				9C760FD826F2244D008F22C1 /* ViewController2.swift */,
 				9CABCAD126EF864200213F82 /* Assets.xcassets */,
 				9CABCAD326EF864200213F82 /* LaunchScreen.storyboard */,
 				9CABCAD626EF864200213F82 /* Info.plist */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C760FD926F2244D008F22C1 /* ViewController2.swift in Sources */,
 				9CABCACA26EF864100213F82 /* ViewController.swift in Sources */,
 				9CABCAD026EF864100213F82 /* CafeMiniApp.xcdatamodeld in Sources */,
 				9CABCAC626EF864100213F82 /* AppDelegate.swift in Sources */,
