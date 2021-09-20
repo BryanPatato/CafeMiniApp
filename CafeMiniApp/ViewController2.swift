@@ -16,21 +16,12 @@ class ViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for (d,c) in blahs { textView.text! += "\(d): \(c)\n" }
         textView.isEditable = false
-    
-        // Do any additional setup after loading the view.
-    }
-    func dataPassed(info: [String : Double]) {
-        textView.text = ""
-        for (f,d) in info{
-        blahs[f] = d
-        }
-        for (g,f) in blahs {
-            textView.text = "\(g): \(f)"
-        }
     }
 
     @IBAction func add(_ sender: UIButton) {
+        textView.text = ""
         blahs[textField.text!] = Double(textField2.text!)
         for (c,d) in blahs{ print("\(c): \(d)") }
         textField.text = ""
@@ -39,9 +30,14 @@ class ViewController2: UIViewController {
 
     @IBAction func remove(_ sender: UIButton){
         blahs.removeValue(forKey: textField.text!)
-        for (c,d) in blahs { textView.text = "\(c): \(d)" }
+        textView.text = ""
+        for (c,d) in blahs { textView.text! += "\(c): \(d)\n" }
         textField.text = ""
         textField2.text = ""
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let ovc = segue.source as! ViewController
+        for (f,g) in blahs { ovc.list[f] = g } 
     }
     
 }

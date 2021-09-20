@@ -24,7 +24,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for(blah3,shaw) in list { textView2.text += "\(blah3): $\(shaw)\n" }
         textView.isEditable = false
         textView2.isEditable = false
         alert2.addTextField(configurationHandler: nil)
@@ -35,6 +34,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.performSegue(withIdentifier: "car", sender: self)
             }
         } ) )
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        textView2.text = ""
+        for (f,g) in list {
+            textView2.text! += "\(f): \(g)\n"
+        }
     }
     
 
@@ -51,13 +56,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Admin(_ sender: UIBarButtonItem) {
         present(alert2, animated: true, completion: nil)
         }
-        
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "car" {
-                let nvc = segue.destination as! ViewController2
-    }
+        let nvc = segue.destination as! ViewController2
+        for (q,w) in list { nvc.blahs[q] = w }
     }
     
-    
-}
-
+    }
