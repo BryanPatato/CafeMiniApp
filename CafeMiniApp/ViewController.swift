@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, dataEnterDelegate {
+
+class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -28,15 +29,14 @@ class ViewController: UIViewController, UITextFieldDelegate, dataEnterDelegate {
         textView2.isEditable = false
         alert2.addTextField(configurationHandler: nil)
         alert2.addTextField(configurationHandler: nil)
-        alert2.addAction(UIAlertAction(title: "done", style: .default, handler: { [weak alert2] (_) in let textField2 = alert2?.textFields![0]
+        alert2.addAction(UIAlertAction(title: "done", style: .default, handler: { [self, weak alert2] (_) in let textField2 = alert2?.textFields![0]
             let textField3 = alert2?.textFields![1]
             if textField2?.text == self.username && textField3?.text == self.password {
                 self.performSegue(withIdentifier: "car", sender: self)
-                
             }
         } ) )
     }
-
+    
 
     @IBAction func addItem(_ sender: UIButton) {
             if list[textFeild.text!] != nil {
@@ -54,17 +54,10 @@ class ViewController: UIViewController, UITextFieldDelegate, dataEnterDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "car" {
-                let controller = segue.destination as! ViewController2
-                controller.deleg = self
+                let nvc = segue.destination as! ViewController2
     }
     }
-    func passData(info: [String : Double]) {
-        textView2.text = " "
-        for (c,d) in info {
-        list[c] = d
-            for (r,w) in list{ textView2.text += "\(r): \(w)\n"}
-        }
-    }
+    
     
 }
 

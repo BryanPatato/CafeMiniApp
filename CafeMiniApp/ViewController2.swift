@@ -6,16 +6,12 @@
 //
 
 import UIKit
-protocol dataEnterDelegate {
-    func passData(info:[String:Double])
-}
 
-class ViewController2: UIViewController, sendDataOver  {
+class ViewController2: UIViewController {
 
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField: UITextField!
     var blahs: [String:Double] = [:]
-    var deleg:dataEnterDelegate? = nil
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -36,22 +32,14 @@ class ViewController2: UIViewController, sendDataOver  {
 
     @IBAction func add(_ sender: UIButton) {
         blahs[textField.text!] = Double(textField2.text!)
-        if (deleg != nil){
-            deleg!.passData(info: blahs)
-        }
-        for (c,d) in blahs{ print("\(c): \(d)")}
+        for (c,d) in blahs{ print("\(c): \(d)") }
         textField.text = ""
         textField2.text = ""
     }
 
     @IBAction func remove(_ sender: UIButton){
         blahs.removeValue(forKey: textField.text!)
-        if (deleg != nil){
-            deleg!.passData(info: blahs)
-        }
-        for (c,d) in blahs {
-            textView.text = "\(c): \(d)"
-        }
+        for (c,d) in blahs { textView.text = "\(c): \(d)" }
         textField.text = ""
         textField2.text = ""
     }
