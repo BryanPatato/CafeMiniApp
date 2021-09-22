@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, sendBack{
     
     
     
@@ -42,10 +42,47 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-
+    func getBack(info: [String : Double], info2: [String : Double]) {
+        for (a,b) in info{ list[a] = b }
+        for (c,_) in info2{ list.removeValue(forKey: c) }
+    }
+    
+    @IBAction func sortPrice(_ sender: UIButton) {
+        textView2.text = ""
+        var sort = list.values.sorted()
+        var sorted:[String:Double] = [:]
+        while sorted.count != list.count {
+            for i in 0...sort.count-1{
+            for (a,b) in list{
+                if sort[i] == b {
+                    textView2.text += "\(a): $\(b)\n"
+                }
+                sorted[a] = b
+            }
+            }
+            
+        }
+    }
+    
+    @IBAction func sortName(_ sender: UIButton) {
+        textView2.text = ""
+        var sort = list.keys.sorted()
+        var sorted:[String:Double] = [:]
+        while sorted.count != list.count {
+            for i in 0...sort.count-1{
+            for (a,b) in list{
+                if sort[i] == a {
+                    textView2.text += "\(a): $\(b)\n"
+                }
+                sorted[a] = b
+            }
+            }
+        }
+    }
+    
     @IBAction func addItem(_ sender: UIButton) {
             if list[textFeild.text!] != nil {
-                textView.text += " \(textFeild.text! ): $\(list[textFeild.text!]!) "
+                textView.text += " \(textFeild.text! ): $\(list[textFeild.text!]!)\n"
                 label2.isHidden = true
             }
             else{
@@ -60,6 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nvc = segue.destination as! ViewController2
         for (q,w) in list { nvc.blahs[q] = w }
+        nvc.deleg = self
     }
     
     }
